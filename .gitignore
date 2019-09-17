@@ -301,3 +301,6 @@ __pycache__/
 
 Scripts/htmldocs
 Scripts/monodoc_output
+
+# ignore on Ubuntu
+.vscode
