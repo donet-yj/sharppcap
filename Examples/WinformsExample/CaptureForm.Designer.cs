@@ -37,6 +37,7 @@ namespace WinformsExample
             this.packetInfoTextbox = new System.Windows.Forms.RichTextBox();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -45,11 +46,12 @@ namespace WinformsExample
             // 
             // toolStrip1
             // 
+            this.toolStrip1.Font = new System.Drawing.Font("D2Coding", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.startStopToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(741, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(604, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -66,9 +68,9 @@ namespace WinformsExample
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.captureStatisticsToolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 498);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 543);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(741, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(604, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -79,7 +81,8 @@ namespace WinformsExample
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Location = new System.Drawing.Point(12, 28);
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -91,8 +94,9 @@ namespace WinformsExample
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.packetInfoTextbox);
-            this.splitContainer1.Size = new System.Drawing.Size(717, 467);
-            this.splitContainer1.SplitterDistance = 262;
+            this.splitContainer1.Size = new System.Drawing.Size(604, 518);
+            this.splitContainer1.SplitterDistance = 162;
+            this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 3;
             // 
             // dataGridView
@@ -104,27 +108,29 @@ namespace WinformsExample
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
-            this.dataGridView.Size = new System.Drawing.Size(717, 262);
+            this.dataGridView.Size = new System.Drawing.Size(604, 162);
             this.dataGridView.TabIndex = 0;
             this.dataGridView.SelectionChanged += new System.EventHandler(this.dataGridView_SelectionChanged);
             // 
             // packetInfoTextbox
             // 
             this.packetInfoTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.packetInfoTextbox.Font = new System.Drawing.Font("D2Coding", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.packetInfoTextbox.Location = new System.Drawing.Point(0, 0);
             this.packetInfoTextbox.Name = "packetInfoTextbox";
-            this.packetInfoTextbox.Size = new System.Drawing.Size(717, 201);
+            this.packetInfoTextbox.Size = new System.Drawing.Size(604, 351);
             this.packetInfoTextbox.TabIndex = 1;
             this.packetInfoTextbox.Text = "";
             // 
             // CaptureForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 520);
+            this.ClientSize = new System.Drawing.Size(604, 565);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
+            this.Font = new System.Drawing.Font("D2Coding", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.Name = "CaptureForm";
             this.Text = "CaptureForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaptureForm_FormClosing);
@@ -136,6 +142,7 @@ namespace WinformsExample
             this.statusStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
