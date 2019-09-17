@@ -133,7 +133,7 @@ namespace SharpPcap
         /// </summary>
         void Close();
 
-        #region Capture methods and properties
+        #region <=== Capture methods and properties ===
         /// <summary>
         /// Fires whenever a new packet is processed, either when the packet arrives
         /// from the network device or when the packet is read from the on-disk file.<br/>
@@ -172,7 +172,7 @@ namespace SharpPcap
         /// </summary>
         void Capture();
 
-        #endregion
+        #endregion === Capture methods and properties ===>
 
         /// <summary>
         /// Retrieves the next packet from a device
