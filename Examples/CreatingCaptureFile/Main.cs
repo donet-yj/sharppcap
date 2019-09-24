@@ -75,10 +75,9 @@ namespace CreatingCaptureFile
 
             Console.WriteLine();
             Console.WriteLine("-- Listening on {0} {1}, writing to {2}, hit 'Enter' to stop...",
-                              device.Name, device.Description,
-                              capFile);
+                              device.Name, device.Description, capFile);
 
-            // open the output file
+            // open the output file (실행파일이 있는 경로에 로그파일 생성됨)
             captureFileWriter = new CaptureFileWriterDevice(device, capFile);
 
             // Start the capturing process
