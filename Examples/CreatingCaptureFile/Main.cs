@@ -58,7 +58,10 @@ namespace CreatingCaptureFile
             if(device is WinPcapDevice)
             {
                 var winPcap = device as WinPcapDevice;
-                winPcap.Open(SharpPcap.WinPcap.OpenFlags.DataTransferUdp | SharpPcap.WinPcap.OpenFlags.NoCaptureLocal, readTimeoutMilliseconds);
+                winPcap.Open(
+                    SharpPcap.WinPcap.OpenFlags.DataTransferUdp | SharpPcap.WinPcap.OpenFlags.NoCaptureLocal, 
+                    readTimeoutMilliseconds
+                    );
             }
             else if (device is LibPcapLiveDevice)
             {

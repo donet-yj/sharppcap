@@ -80,7 +80,12 @@ namespace SharpPcap.LibPcap
         /// <param name="captureFilename">
         /// A <see cref="System.String"/>
         /// </param>
-        public CaptureFileWriterDevice (string captureFilename) : this(captureFilename, FileMode.OpenOrCreate)
+        public CaptureFileWriterDevice (
+            string captureFilename)                     // 1)
+            : this(                                     // =>1
+                  captureFilename,                      // 1) captureFilename
+                  FileMode.OpenOrCreate                 // 2) FileMode
+                  )
         {
 
         }
@@ -94,9 +99,15 @@ namespace SharpPcap.LibPcap
         /// <param name="mode">
         /// A <see cref="FileMode"/>
         /// </param>
-        public CaptureFileWriterDevice(string captureFilename, FileMode mode) :
-            this(PacketDotNet.LinkLayers.Ethernet, Pcap.MAX_PACKET_SIZE,
-                 captureFilename, mode)
+        public CaptureFileWriterDevice(
+            string captureFilename,                     // 1)
+            FileMode mode                               // 2) FileMode.OpenOrCreate
+            ) : this(
+                PacketDotNet.LinkLayers.Ethernet,       // 1)
+                Pcap.MAX_PACKET_SIZE,                   // 2)
+                captureFilename,                        // 3) captureFilename
+                mode                                    // 4) FileMode.OpenOrCreate
+                )
         {
         }
 
@@ -109,13 +120,16 @@ namespace SharpPcap.LibPcap
         /// <param name="captureFilename">
         /// A <see cref="System.String"/>
         /// </param>
-        public CaptureFileWriterDevice(LibPcapLiveDevice device,
-                                       string captureFilename) :
-            this((PacketDotNet.LinkLayers)LibPcapSafeNativeMethods.pcap_datalink(device.PcapHandle),
-                 LibPcapSafeNativeMethods.pcap_snapshot(device.PcapHandle),
-                 captureFilename,
-                 FileMode.OpenOrCreate)
-
+        public CaptureFileWriterDevice(
+            LibPcapLiveDevice device,                   // 1) PacketDotNet.LinkLayers.Ethernet
+            string captureFilename                      // 2) captureFileName
+            ) : 
+            this(                                                                                   // =>2
+                (PacketDotNet.LinkLayers)LibPcapSafeNativeMethods.pcap_datalink(device.PcapHandle),     // 1)
+                LibPcapSafeNativeMethods.pcap_snapshot(device.PcapHandle),                              // 2)
+                captureFilename,                                                                        // 3) capturFilename
+                FileMode.OpenOrCreate                                                                   // 4) FileMode
+                )
         {
         }
 
@@ -131,13 +145,16 @@ namespace SharpPcap.LibPcap
         /// <param name="mode">
         /// A <see cref="FileMode"/>
         /// </param>
-        public CaptureFileWriterDevice(LibPcapLiveDevice device,
-                                       string captureFilename,
-                                       FileMode mode) :
-            this((PacketDotNet.LinkLayers)LibPcapSafeNativeMethods.pcap_datalink(device.PcapHandle),
-                 LibPcapSafeNativeMethods.pcap_snapshot(device.PcapHandle),
-                 captureFilename,
-                 mode)
+        public CaptureFileWriterDevice(
+            LibPcapLiveDevice device,                   // 1) device
+            string captureFilename,                     // 2) captureFileName
+            FileMode mode                               // 3) mode
+            ) : this(
+                (PacketDotNet.LinkLayers)LibPcapSafeNativeMethods.pcap_datalink(device.PcapHandle), // 1)
+                LibPcapSafeNativeMethods.pcap_snapshot(device.PcapHandle),                          // 2)
+                captureFilename,                                                                    // 3) captureFilename
+                mode                                                                                // 4) mode
+                )
 
         {
         }
@@ -157,17 +174,20 @@ namespace SharpPcap.LibPcap
         /// <param name="mode">
         /// A <see cref="FileMode"/>
         /// </param>
-        public CaptureFileWriterDevice(PacketDotNet.LinkLayers linkLayerType,
-                                       int? snapshotLength,
-                                       string captureFilename,
-                                       FileMode mode)
+        public CaptureFileWriterDevice(                 // =>3
+            PacketDotNet.LinkLayers linkLayerType,      // 1)
+            int? snapshotLength,                        // 2) num : snapshotLength가 Null 이면 Null 아니면 전달된 값 (condition operator)
+            string captureFilename,                     // 3) captureFilename
+            FileMode mode                               // 4) mode
+            )
         {
             m_pcapFile = captureFilename;
 
             // append isn't possible without some difficulty and not implemented yet
             if(mode == FileMode.Append)
             {
-                throw new System.InvalidOperationException("FileMode.Append is not supported, please contact the developers if you are interested in helping to implementing it");
+                throw new System.InvalidOperationException(
+                    "FileMode.Append is not supported, please contact the developers if you are interested in helping to implementing it");
             }
 
             if(!snapshotLength.HasValue)
